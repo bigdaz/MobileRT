@@ -13,6 +13,7 @@ jobs:
       with:
         # Check available parameters in: https://github.com/actions/setup-java/blob/main/action.yml
         java-version: 17
+        distribution: 'zulu'
     - name: Check available Android versions
       run: |
         echo 'Available Android versions:';
