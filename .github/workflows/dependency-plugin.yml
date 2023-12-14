@@ -8,6 +8,20 @@ jobs:
   gradle:
     runs-on: ubuntu-latest
     steps:
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        # Check available parameters in: https://github.com/actions/setup-java/blob/main/action.yml
+        java-version: 17
+    - name: Check available Android versions
+      run: |
+        echo 'Available Android versions:';
+        du -h -d 1 ${ANDROID_HOME}/ndk;
+        du -h -d 1 ${ANDROID_HOME}/cmake;
+        du -h -d 1 ${ANDROID_HOME}/build-tools;
+        ls -lahp ${ANDROID_HOME}/platforms;
+        ls -lahp ${HOME};
+        echo "ANDROID_NDK_PATH=${ANDROID_HOME}/ndk/23.2.8568313" >> "${GITHUB_ENV}";       
     - name: Checkout project sources
       uses: actions/checkout@v4
     - name: Setup Gradle
