@@ -30,4 +30,4 @@ jobs:
       with:
         dependency-graph: generate
     - name: Run build with Gradle wrapper
-      run: ./gradlew build
+      run: ./gradlew ForceDependencyResolutionPlugin_resolveAllDependencies
